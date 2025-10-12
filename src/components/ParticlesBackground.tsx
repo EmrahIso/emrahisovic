@@ -60,7 +60,7 @@ const ParticlesBackground: React.FC = () => {
       background: { color: { value: 'transparent' } },
       fpsLimit: 60,
       particles: {
-        number: { value: 40 },
+        number: { value: 50 },
         size: { value: { min: 1, max: 3 } },
         move: { enable: true, speed: 0.5 },
         opacity: { value: 0.5 },

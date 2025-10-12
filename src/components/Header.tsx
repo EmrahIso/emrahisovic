@@ -4,7 +4,7 @@ import ThemeButton from './ThemeSwitchButton';
 
 const Header = () => {
   return (
-    <header className='bg-white dark:bg-neutral-900 dark:border-neutral-800 h-[80px] border-b-1 relative z-99 border-neutral-200'>
+    <header className='bg-white dark:bg-neutral-900 dark:border-neutral-800 h-[80px] basis-[80px] border-b-1 relative z-99 border-neutral-200'>
       <div className='container h-full 2xl:max-w-[1480px] mx-auto px-4 flex justify-between items-center'>
         <h1 className='font-medium text-black dark:text-white text-2xl'>
           <Link
