@@ -5,6 +5,8 @@ import { Providers } from '@/contexts/providers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+import Head from 'next/head';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://emrahisovic.pages.dev'),
   title: {
@@ -22,6 +24,14 @@ export const metadata: Metadata = {
     'Web Developer Portfolio',
     'Portfolio',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   authors: [{ name: 'Emrah Isović', url: 'https://emrahisovic.pages.dev' }],
   openGraph: {
     title: 'Emrah Isović | Front-End Developer',
@@ -67,6 +77,12 @@ export default function RootLayout({
       data-scroll-behavior='smooth'
       className={interFont.variable}
     >
+      <head>
+        <Head>
+          <meta name='apple-mobile-web-app-title' content='Emrah Isović' />
+          <link rel='manifest' href='/site.webmanifest' />
+        </Head>
+      </head>
       <body
         suppressHydrationWarning
         className='font-main min-h-screen flex flex-col'

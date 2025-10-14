@@ -2,6 +2,8 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 
+import Link from 'next/link';
+
 import { Providers } from '@/contexts/providers';
 
 import ParticlesBackground from '@/components/ParticlesBackground';
@@ -46,12 +48,12 @@ const GlobalNotFound: React.FC = () => {
             <p className='text-neutral-700 dark:text-neutral-50 mt-12 sm:text-4xl text-2xl font-regular sm:leading-13 leading-9'>
               Sorry, there is nothing at <br /> this URL.
             </p>
-            <a
+            <Link
               href='/'
               className='bg-neutral-800 inline-block px-4 py-3 sm:mt-18 mt-10 rounded-lg gap-7 hover:scale-105 shadow-2xs transition-transform duration-150 text-xl text-neutral-200'
             >
               Go back home
-            </a>
+            </Link>
           </div>
         </Providers>
       </body>
