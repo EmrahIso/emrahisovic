@@ -87,7 +87,7 @@ const ParticlesBackground: React.FC = () => {
       },
       detectRetina: true,
     };
-  }, [isDark]);
+  }, [isDark, isMobile]);
 
   return <Particles id='tsparticles' options={options} />;
 };
