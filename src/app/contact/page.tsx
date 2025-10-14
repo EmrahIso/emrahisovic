@@ -3,42 +3,42 @@ import { Icon } from '@iconify/react';
 
 const Contact = () => {
   return (
-    <section className='my-8'>
-      <div className='container md:max-w-[768px] mx-auto px-16 py-4 z-10 flex flex-col items-center'>
-        <h2 className='text-neutral-900 dark:text-neutral-100 text-5xl font-semibold tracking-tight'>
+    <section className='md:my-8 my-12'>
+      <div className='container md:max-w-[768px] mx-auto md:px-16 px-4 py-4 z-10 flex flex-col items-center'>
+        <h2 className='bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent text-center sm:text-5xl text-4xl font-semibold inline-block'>
           Get In Touch
         </h2>
-        <p className='mt-4 text-base leading-7 text-neutral-700 dark:text-neutral-300'>
-          If you'd like to connect or collaborate, feel free to reach out.
+        <p className='mt-4 text-base text-center leading-7 text-neutral-700 dark:text-neutral-300'>
+          If you&apos;d like to connect or collaborate, feel free to reach out.
         </p>
-        <div className='w-full custom-box-shadow-1 rounded-2xl border-1 border-neutral-200 dark:border-neutral-700 transition-shadow duration-300 mt-10 p-6'>
+        <div className='w-full custom-box-shadow-1 rounded-2xl border-1 border-neutral-200 dark:border-neutral-700 transition-shadow duration-300 mt-10 sm:p-6 p-4'>
           <div>
             <ul className='flex flex-col gap-3'>
-              <li className='flex gap-4 items-center'>
+              <li className='flex sm:gap-4 gap-2 items-center'>
                 <span>
                   <Mail
                     size={24}
                     className='text-gray-500 dark:text-neutral-300'
                   />
                 </span>
-                <p className='text-neutral-700 dark:text-neutral-300 text-lg'>
+                <p className='text-neutral-700 dark:text-neutral-300 sm:text-lg text-base'>
                   emrahisovic20@gmail.com
                 </p>
               </li>
-              <li className='flex gap-4 items-center'>
+              <li className='flex sm:gap-4 gap-2 items-center'>
                 <span>
                   <MapPin
                     size={24}
                     className='text-gray-500 dark:text-neutral-300'
                   />
                 </span>
-                <p className='text-neutral-700 dark:text-neutral-300 text-lg'>
-                  Sarajevo, Bosnia and Herzegovina
+                <p className='text-neutral-700 dark:text-neutral-300 sm:text-lg text-base'>
+                  Sarajevo, B&H
                 </p>
               </li>
             </ul>
           </div>
-          <div className='mt-10 flex justify-between'>
+          <div className='sm:mt-10 mt-7 flex sm:justify-between flex-col items-start md:gap-4 gap-5'>
             <div>
               <a
                 href='mailto:emrahisovic20@gmail.com'
@@ -49,14 +49,14 @@ const Contact = () => {
                 <p className='text-white'>Send Email</p>
               </a>
             </div>
-            <ul className='flex gap-5 items-center'>
+            <ul className='flex sm:gap-5 gap-3.5 gap-y-2 items-center flex-wrap'>
               <li>
                 <a
                   href='https://github.com/EmrahIso'
                   rel='noopener noreferrer'
                   aria-label='GitHub profile'
                   target='_blank'
-                  className='flex items-center text-neutral-700 hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-300 transition-colors duration-150 text-lg gap-2 underline underline-offset-4'
+                  className='flex items-center text-neutral-700 hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-300 transition-colors duration-150 md:text-lg text-base sm:gap-2 gap-1.5 underline underline-offset-4'
                 >
                   <Icon
                     icon='simple-icons:github'
@@ -72,7 +72,7 @@ const Contact = () => {
                   rel='noopener noreferrer'
                   aria-label='Linkedin profile'
                   target='_blank'
-                  className='flex items-center text-neutral-700 hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-300 transition-colors duration-150 text-lg gap-3 underline underline-offset-4'
+                  className='flex items-center text-neutral-700 hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-300 transition-colors duration-150 md:text-lg text-base sm:gap-2 gap-1.5 underline underline-offset-4'
                 >
                   <Icon
                     icon='simple-icons:linkedin'
@@ -88,11 +88,11 @@ const Contact = () => {
                   aria-label='Discord Profile'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex items-center text-neutral-700 hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-300 transition-colors duration-150 text-lg gap-3 underline underline-offset-4'
+                  className='flex items-center text-neutral-700 hover:text-neutral-950 dark:text-neutral-400 hover:dark:text-neutral-300 transition-colors duration-150 md:text-lg text-base sm:gap-2 gap-1.5 underline underline-offset-4'
                 >
                   <Icon
                     icon='simple-icons:discord'
-                    height={24}
+                    height={18}
                     className='text-neutral-700 dark:text-neutral-400'
                   />
                   <span>Discord</span>

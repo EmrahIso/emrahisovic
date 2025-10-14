@@ -33,6 +33,9 @@ const ThemeSwitchButton = () => {
   return (
     <button
       type='button'
+      aria-label={
+        resolvedTheme === 'dark' ? 'Activate light mode' : 'Activate dark mode'
+      }
       className='px-2 py-2 cursor-pointer transition-shadow hover:shadow-sm rounded-xl text-neutral-900 dark:text-neutral-100'
       onClick={
         resolvedTheme === 'light'

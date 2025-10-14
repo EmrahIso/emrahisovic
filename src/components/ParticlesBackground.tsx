@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef, useCallback, useMemo } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import type { Engine, ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 import { initParticlesEngine, Particles } from '@tsparticles/react';
@@ -56,7 +56,7 @@ const ParticlesBackground: React.FC = () => {
 
   const options = useMemo<ISourceOptions>(() => {
     return {
-      fullScreen: { enable: false },
+      fullScreen: { enable: true },
       background: { color: { value: 'transparent' } },
       fpsLimit: 60,
       particles: {
