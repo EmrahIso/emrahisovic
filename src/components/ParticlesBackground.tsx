@@ -54,15 +54,18 @@ const ParticlesBackground: React.FC = () => {
     };
   }, []);
 
+  const isMobile: boolean =
+    typeof window !== 'undefined' && window.innerWidth < 768;
+
   const options = useMemo<ISourceOptions>(() => {
     return {
       fullScreen: { enable: true },
       background: { color: { value: 'transparent' } },
-      fpsLimit: 60,
+      fpsLimit: isMobile ? 35 : 60,
       particles: {
-        number: { value: 50 },
+        number: { value: isMobile ? 25 : 50 },
         size: { value: { min: 1, max: 3 } },
-        move: { enable: true, speed: 0.5 },
+        move: { enable: true, speed: isMobile ? 0.3 : 0.5 },
         opacity: { value: 0.5 },
         color: {
           value: isDark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.2)',
@@ -70,7 +73,7 @@ const ParticlesBackground: React.FC = () => {
         links: {
           enable: true,
           color: isDark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.2)',
-          distance: 120,
+          distance: isMobile ? 60 : 120,
           opacity: 0.2,
           width: 1,
         },
