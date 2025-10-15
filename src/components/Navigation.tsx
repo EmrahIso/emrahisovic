@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import NavigationButton from './NavigationOpenButton';
 
+import { motion } from 'motion/react';
+
 const Navigation = () => {
   const [navigationMode, setNavigationMode] = useState<'mobile' | 'desktop'>(
     'desktop'
@@ -43,14 +45,14 @@ const DesktopNavigation = () => {
           About
         </Link>
       </li>
-      <li>
+      <motion.li initial={{ scale: 0 }} animate={{ scale: 1 }}>
         <Link
           href='/skills'
           className='text-base text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 dark:after:bg-neutral-50 after:bg-neutral-950 animated-link'
         >
           Skills
         </Link>
-      </li>
+      </motion.li>
       <li>
         <Link
           href='/projects'

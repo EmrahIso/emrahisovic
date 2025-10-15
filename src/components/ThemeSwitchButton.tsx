@@ -7,6 +7,8 @@ import { Sun } from 'lucide-react';
 
 import { useTheme } from 'next-themes';
 
+import { motion } from 'motion/react';
+
 import Image from 'next/image';
 
 const ThemeSwitchButton = () => {
@@ -31,7 +33,9 @@ const ThemeSwitchButton = () => {
     );
 
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
       type='button'
       aria-label={
         resolvedTheme === 'dark' ? 'Activate light mode' : 'Activate dark mode'
@@ -48,7 +52,7 @@ const ThemeSwitchButton = () => {
       ) : (
         <Sun strokeWidth={2} size={27} />
       )}
-    </button>
+    </motion.button>
   );
 };
 

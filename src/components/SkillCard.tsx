@@ -28,7 +28,7 @@ const SkillCard: FC<SkillCardProps> = ({ title, icon }) => {
     );
 
   return (
-    <div className=' border-1 border-neutral-400 px-3.5 py-2.5 rounded-full flex items-center gap-3'>
+    <div className=' border-1 border-neutral-400 px-3.5 py-2.5 rounded-full flex items-center gap-3 h-[46px]'>
       <div>{icon}</div>
       <p className='text-base'>{title}</p>
     </div>

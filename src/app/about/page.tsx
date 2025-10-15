@@ -1,15 +1,17 @@
 import { Icon } from '@iconify/react';
 
+import AnimatedListItem from '@/components/AnimatedListItem';
+
 const About = () => {
   return (
     <section className='md:my-8 my-12'>
       <div className='container md:max-w-[768px] mx-auto md:px-16 px-4 py-4 z-10'>
         <div>
-          <div className='flex flex-col sm:flex-row sm:gap-0 gap-2 justify-between items-start sm:items-center'>
-            <h2 className='text-neutral-900 dark:text-neutral-50 md:text-4xl text-2xl font-semibold'>
+          <div className='flex flex-col sm:flex-row sm:gap-0 gap-2 justify-between items-start sm:items-center '>
+            <h2 className='text-neutral-900 dark:text-neutral-50 md:text-4xl text-2xl font-semibold opacity-0 animate-[fadeIn_0.6s_ease-out_forwards_0.2s]'>
               Hey, I&apos;m Emrah.
             </h2>
-            <ul className='flex gap-5 items-center'>
+            <ul className='flex gap-5 items-center opacity-0 animate-[fadeIn_0.6s_ease-out_forwards_0.2s]'>
               <li>
                 <span className='text-sm font-medium text-neutral-600 dark:text-neutral-400'>
                   2025
@@ -22,7 +24,7 @@ const About = () => {
               </li>
             </ul>
           </div>
-          <p className='sm:mt-6 mt-12 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300'>
+          <p className='sm:mt-6 mt-12 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards_0.3s]'>
             I&apos;m a self-taught front-end developer focused on building
             clear, functional and accessible web interfaces. I mostly work with{' '}
             <a
@@ -62,24 +64,24 @@ const About = () => {
             </a>{' '}
             tooling.
           </p>
-          <p className='mt-4 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300'>
+          <p className='mt-4 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards_0.4s]'>
             I&apos;m 17 years old and currently a high school student. While
             I&apos;m still early in my journey, I&apos;m open to learning
             opportunities, collaborations, and gaining real-world experience
             through open source and personal projects.
           </p>
-          <p className='mt-4 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300'>
+          <p className='mt-4 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards_0.5s]'>
             I like keeping things simple — both in code and design — and aim to
             write maintainable, understandable solutions that scale well.
           </p>
-          <p className='mt-4 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300'>
+          <p className='mt-4 md:text-lg text-base leading-7 text-neutral-700 dark:text-neutral-300 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards_0.6s]'>
             If you&apos;d like to connect or collaborate, feel free to reach
             out.
           </p>
         </div>
 
         <ul className='flex flex-wrap gap-8 gap-y-4 sm:mt-8 mt-16'>
-          <li>
+          <AnimatedListItem delay={0.7}>
             <a
               href='https://github.com/EmrahIso'
               rel='noopener noreferrer'
@@ -94,8 +96,8 @@ const About = () => {
               />
               <span>GitHub</span>
             </a>
-          </li>
-          <li>
+          </AnimatedListItem>
+          <AnimatedListItem delay={0.8}>
             <a
               href='https://www.linkedin.com/in/emrah-isovic-380127353/'
               rel='noopener noreferrer'
@@ -110,8 +112,8 @@ const About = () => {
               />
               <span>LinkedIn</span>
             </a>
-          </li>
-          <li>
+          </AnimatedListItem>
+          <AnimatedListItem delay={0.9}>
             <a
               href='mailto:emrahisovic20@gmail.com'
               aria-label='Send me an email'
@@ -124,8 +126,8 @@ const About = () => {
               />
               <span>Gmail</span>
             </a>
-          </li>
-          <li>
+          </AnimatedListItem>
+          <AnimatedListItem delay={1}>
             <a
               href='https://discord.com/users/1123513541626966136'
               aria-label='Discord Profile'
@@ -140,7 +142,7 @@ const About = () => {
               />
               <span>Discord</span>
             </a>
-          </li>
+          </AnimatedListItem>
         </ul>
       </div>
     </section>

@@ -16,9 +16,9 @@ const HomeMain = () => {
             priority={true}
             width={1024}
             height={1024}
-            className='h-[250px] w-[250px] drop-shadow-xl'
+            className='h-[250px] w-[250px] drop-shadow-xl opacity-0 animate-[blurFadeIn_0.6s_ease-out_forwards_0.175s]'
           />
-          <div className='flex flex-col justify-center md:items-start items-center md:gap-6 gap-4'>
+          <div className='flex flex-col justify-center md:items-start items-center md:gap-6 gap-4  opacity-0 animate-[blurFadeIn_0.6s_ease-out_forwards_0.175s]'>
             <ul className='flex gap-3.5 md:-mt-2'>
               <li>
                 <a
