@@ -2,17 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { navLinks, NavLink } from '@/lib/navLinks';
 import NavigationButton from './NavigationOpenButton';
 
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 
 const Navigation = () => {
   const [navigationMode, setNavigationMode] = useState<'mobile' | 'desktop'>(
     'desktop'
   );
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  const pathname: string | null = usePathname();
 
   useEffect(() => {
     setNavigationMode(window.innerWidth >= 768 ? 'desktop' : 'mobile');
+    setMounted(true);
 
     const handleResize = () => {
       setNavigationMode(window.innerWidth >= 768 ? 'desktop' : 'mobile');
@@ -23,57 +29,42 @@ const Navigation = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  if (!mounted) return null;
+
   return (
     <nav>
       {navigationMode === 'desktop' ? (
-        <DesktopNavigation />
+        <DesktopNavigation pathname={pathname} />
       ) : (
-        <MobileNavigation />
+        <MobileNavigation pathname={pathname} />
       )}
     </nav>
   );
 };
 
-const DesktopNavigation = () => {
+const DesktopNavigation = ({ pathname }: { pathname: string | null }) => {
   return (
     <ul className='flex gap-12 tracking-wide font-medium'>
-      <li>
-        <Link
-          href='/about'
-          className='text-base text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 dark:after:bg-neutral-50 after:bg-neutral-950 animated-link'
-        >
-          About
-        </Link>
-      </li>
-      <motion.li initial={{ scale: 0 }} animate={{ scale: 1 }}>
-        <Link
-          href='/skills'
-          className='text-base text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 dark:after:bg-neutral-50 after:bg-neutral-950 animated-link'
-        >
-          Skills
-        </Link>
-      </motion.li>
-      <li>
-        <Link
-          href='/projects'
-          className='text-base text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 dark:after:bg-neutral-50 after:bg-neutral-950 animated-link'
-        >
-          Projects
-        </Link>
-      </li>
-      <li>
-        <Link
-          href='/contact'
-          className='text-base text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 animated-link dark:after:bg-neutral-50 after:bg-neutral-950'
-        >
-          Contact
-        </Link>
-      </li>
+      {navLinks.map((link: NavLink) => (
+        <li key={link.name}>
+          <Link
+            href={link.href}
+            className={
+              ' relative inline-block  font-medium  dark:after:bg-neutral-50 after:bg-neutral-950 py-[5px] ' +
+              (pathname === link.href
+                ? 'text-base text-neutral-950 dark:text-neutral-50'
+                : 'text-base animated-link text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100')
+            }
+          >
+            {link.name}
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 };
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ pathname }: { pathname: string | null }) => {
   const [isNavigationOpen, setIsNavigationOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -92,63 +83,58 @@ const MobileNavigation = () => {
   };
 
   return (
-    <div>
-      {isNavigationOpen ? (
-        <div className='flex items-center justify-between'>
-          <ul className='flex justify-center items-center flex-col gap-6 fixed top-0 left-0 h-screen w-screen z-9 bg-white dark:bg-neutral-900 tracking-wide font-medium'>
-            <li>
-              <Link
-                href='/about'
-                className='text-xl text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 dark:after:bg-neutral-50 after:bg-neutral-950 animated-link'
-                onClick={() => setIsNavigationOpen(false)}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='/skills'
-                className='text-xl text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 dark:after:bg-neutral-50 after:bg-neutral-950 animated-link'
-                onClick={() => setIsNavigationOpen(false)}
-              >
-                Skills
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='/projects'
-                className='text-xl text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 dark:after:bg-neutral-50 after:bg-neutral-950 animated-link'
-                onClick={() => setIsNavigationOpen(false)}
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='/contact'
-                className='text-xl text-neutral-600 dark:text-neutral-200 dark:hover:text-neutral-50 font-medium hover:text-neutral-950 animated-link dark:after:bg-neutral-50 after:bg-neutral-950'
-                onClick={() => setIsNavigationOpen(false)}
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
-          <div>
-            <NavigationButton
-              isNavigationOpen={isNavigationOpen}
-              toggleNavigation={toggleNavigation}
-            />
-          </div>
-        </div>
-      ) : (
-        <div>
-          <NavigationButton
-            isNavigationOpen={isNavigationOpen}
-            toggleNavigation={toggleNavigation}
-          />
-        </div>
-      )}
-    </div>
+    <>
+      {' '}
+      <AnimatePresence initial={false}>
+        {isNavigationOpen && (
+          <motion.div
+            key='mobile-menu'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className='flex items-center justify-between'
+          >
+            <motion.ul
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className='flex justify-center items-center flex-col gap-6 fixed top-0 left-0 h-screen w-screen z-10 bg-white dark:bg-neutral-900 tracking-wide font-medium'
+            >
+              {navLinks.map((link: NavLink) => (
+                <motion.li
+                  key={link.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ delay: 0.1, duration: 0.3 }}
+                >
+                  <Link
+                    href={link.href}
+                    className={
+                      ' relative inline-block  font-medium  dark:after:bg-neutral-50 after:bg-neutral-950 py-[5px] ' +
+                      (pathname === link.href
+                        ? 'text-base text-neutral-950 dark:text-neutral-50'
+                        : 'text-base animated-link text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100')
+                    }
+                    onClick={() => setIsNavigationOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <div>
+        <NavigationButton
+          isNavigationOpen={isNavigationOpen}
+          toggleNavigation={toggleNavigation}
+        />
+      </div>
+    </>
   );
 };
 

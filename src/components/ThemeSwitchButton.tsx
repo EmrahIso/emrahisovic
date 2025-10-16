@@ -9,37 +9,26 @@ import { useTheme } from 'next-themes';
 
 import { motion } from 'motion/react';
 
-import Image from 'next/image';
-
 const ThemeSwitchButton = () => {
-  const [mounted, setMounted] = useState<boolean>(false);
   const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted)
-    return (
-      <Image
-        src='data:image/svg+xml;base64,PHN2ZyBzdHJva2U9IiNGRkZGRkYiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBoZWlnaHQ9IjIwMHB4IiB3aWR0aD0iMjAwcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHJ4PSIyIj48L3JlY3Q+PC9zdmc+Cg=='
-        alt='Loading Light/Dark Toggle'
-        sizes='35x35'
-        width={35}
-        height={35}
-        priority={false}
-        title='Loading Light/Dark Toggle'
-      />
-    );
+  const ariaLabel: string = mounted
+    ? resolvedTheme === 'dark'
+      ? 'Activate light mode'
+      : 'Activate dark mode'
+    : 'Toggle theme';
 
   return (
     <motion.button
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       type='button'
-      aria-label={
-        resolvedTheme === 'dark' ? 'Activate light mode' : 'Activate dark mode'
-      }
+      aria-label={ariaLabel}
       className='px-2 py-2 cursor-pointer transition-shadow hover:shadow-sm rounded-xl text-neutral-900 dark:text-neutral-100'
       onClick={
         resolvedTheme === 'light'
@@ -47,7 +36,9 @@ const ThemeSwitchButton = () => {
           : () => setTheme('light')
       }
     >
-      {resolvedTheme === 'light' ? (
+      {!mounted ? (
+        <div className='w-[27px] h-[27px]' />
+      ) : resolvedTheme === 'light' ? (
         <Moon strokeWidth={2} size={27} />
       ) : (
         <Sun strokeWidth={2} size={27} />
