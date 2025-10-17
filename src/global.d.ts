@@ -1,7 +1,13 @@
 export {};
 
+type GtagEventParams = Record<string, string | number | boolean | undefined>;
+
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (
+      command: 'config' | 'event' | 'set',
+      idOrName: string,
+      params?: GtagEventParams
+    ) => void;
   }
 }

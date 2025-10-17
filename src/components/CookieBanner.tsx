@@ -15,8 +15,9 @@ const CookieBanner = () => {
   const handleAccept = () => {
     localStorage.setItem('cookies_accepted', 'true');
     setVisible(false);
-    window.gtag &&
+    if (typeof window.gtag === 'function') {
       window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+    }
   };
 
   const handleDecline = () => {
