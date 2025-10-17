@@ -8,6 +8,8 @@ import NavigationButton from './NavigationOpenButton';
 
 import { AnimatePresence, motion } from 'motion/react';
 
+import { event } from '@/lib/gtag';
+
 const Navigation = () => {
   const [navigationMode, setNavigationMode] = useState<'mobile' | 'desktop'>(
     'desktop'
@@ -55,6 +57,7 @@ const DesktopNavigation = ({ pathname }: { pathname: string | null }) => {
                 ? 'text-base text-neutral-950 dark:text-neutral-50'
                 : 'text-base animated-link text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100')
             }
+            onClick={() => event('nav_click', { page: link.name })}
           >
             {link.name}
           </Link>
@@ -118,7 +121,10 @@ const MobileNavigation = ({ pathname }: { pathname: string | null }) => {
                         ? 'text-base text-neutral-950 dark:text-neutral-50'
                         : 'text-base animated-link text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100')
                     }
-                    onClick={() => setIsNavigationOpen(false)}
+                    onClick={() => {
+                      setIsNavigationOpen(false);
+                      event('nav_click', { page: link.name });
+                    }}
                   >
                     {link.name}
                   </Link>

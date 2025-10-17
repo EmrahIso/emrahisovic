@@ -69,3 +69,14 @@ html {
     filter: blur(0);
   }
 }
+
+@keyframes cookiesIn {
+  0% {
+    opacity: 1;
+    transform: translateY(120%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -4,6 +4,8 @@ import './globals.css';
 import { Providers } from '@/contexts/providers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Analytics from '@/components/Analytics';
+import CookieBanner from '@/components/CookieBanner';
 
 import Head from 'next/head';
 
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s | Emrah Isović',
   },
   description:
-    "I'&apos;'m Emrah Isović, a front-end developer focused on building clear, accessible and maintainable web interfaces using React and TypeScript.",
+    "I'm Emrah Isović, a front-end developer focused on building clear, accessible and maintainable web interfaces using React and TypeScript.",
   keywords: [
     'Emrah Isović',
     'Emrah Isovic',
@@ -90,6 +92,8 @@ export default function RootLayout({
         <Providers>
           <Header />
           <main className='bg-[var(--bg-main-light)] dark:bg-[var(--bg-main-dark)] flex-grow flex flex-col justify-center'>
+            <Analytics />
+            <CookieBanner />
             {children}
           </main>
           <Footer />
