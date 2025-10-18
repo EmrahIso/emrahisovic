@@ -25,7 +25,7 @@ const projectsArray: Project[] = [
   },
   {
     title: 'Portfolio',
-    live: 'https://emrahisovic.pages.dev/',
+    live: 'https://emrahisovic.vercel.app/',
     source: 'https://github.com/EmrahIso/portfolio.git',
     description:
       'My personal portfolio — built to showcase my projects and journey as a front-end developer.',
