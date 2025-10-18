@@ -2,7 +2,7 @@
 
 A modern, responsive, and accessible **personal portfolio** built with **Next.js** and **TypeScript**, focused on clean design, smooth animations, and high performance.
 
-[Portfolio Live](https://emrahisovic.pages.dev)
+[Portfolio Live](https://emrahisovic.vercel.app)
 
 ---
 
@@ -34,7 +34,7 @@ Visitors may see a cookie consent popup due to GA4 tracking..
 
 ## 📬 Contact
 
-- 🌐 **Website:** [Live](https://emrahisovic.pages.dev)
+- 🌐 **Website:** [Live](https://emrahisovic.vercel.app)
 - 💼 **LinkedIn:** [Emrah Isović](https://www.linkedin.com/in/emrah-isovic-380127353)
 - 💻 **GitHub:** [EmrahIso](https://github.com/EmrahIso)
 - 📧 **Email:** [emrahisovic20@gmail.com](mailto:emrahisovic20@gmail.com)

@@ -10,7 +10,7 @@ import CookieBanner from '@/components/CookieBanner';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://emrahisovic.pages.dev'),
+  metadataBase: new URL('https://emrahisovic.vercel.app'),
   title: {
     default: 'Emrah Isović | Front-End Developer',
     template: '%s | Emrah Isović',
@@ -34,12 +34,12 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-touch-icon.png',
   },
-  authors: [{ name: 'Emrah Isović', url: 'https://emrahisovic.pages.dev' }],
+  authors: [{ name: 'Emrah Isović', url: 'https://emrahisovic.vercel.app' }],
   openGraph: {
     title: 'Emrah Isović | Front-End Developer',
     description:
       'Front-end developer focused on building clear, accessible and maintainable web interfaces using React and TypeScript.',
-    url: 'https://emrahisovic.pages.dev',
+    url: 'https://emrahisovic.vercel.app',
     siteName: 'Emrah Isović Portfolio',
     locale: 'en_US',
     type: 'website',
