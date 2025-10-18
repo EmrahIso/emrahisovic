@@ -9,7 +9,7 @@ A modern, responsive, and accessible **personal portfolio** built with **Next.js
 ## 🛠️ Tech Stack
 
 - **Next.js** – React framework for performance and SEO
-- **React** – UI library
+- **React** – JavaScript library
 - **TypeScript** – Static typing for safety and scalability
 - **Tailwind CSS** – Utility-first styling
 - **Motion** – Lightweight animation library
@@ -17,7 +17,7 @@ A modern, responsive, and accessible **personal portfolio** built with **Next.js
 - **Lucide React** – Beautiful, consistent icon set
 - **@iconify/react** – Extended icon support
 - **ESLint** – Code quality and formatting
-- **Cloudflare Pages** – Deployment and hosting
+- **Vercel** – Deployment and hosting
 - **Google Analytics 4** – Site insights
 
 ---

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://emrahisovic.pages.dev/sitemap.xml
+Sitemap: https://emrahisovic.vercel.app/sitemap.xml
