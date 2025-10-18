@@ -13,10 +13,6 @@ export const metadata: Metadata = {
   description:
     'The page you are looking for does not exist. Return to the homepage of Emrah Isović Portfolio.',
   authors: [{ name: 'Emrah Isović', url: 'https://emrahisovic.vercel.app' }],
-  verification: {
-    google:
-      'google-site-verification=XAqbgSYmHzD11dmleOnCJImGX2X0dqUTMxf3WG09XNI',
-  },
 };
 
 const interFont = Inter({

@@ -55,10 +55,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  verification: {
-    google:
-      'google-site-verification=XAqbgSYmHzD11dmleOnCJImGX2X0dqUTMxf3WG09XNI',
-  },
 };
 
 const interFont = Inter({
