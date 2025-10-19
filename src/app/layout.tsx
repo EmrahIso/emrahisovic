@@ -8,6 +8,7 @@ import Analytics from '@/components/Analytics';
 import CookieBanner from '@/components/CookieBanner';
 
 import Head from 'next/head';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://emrahisovic.vercel.app'),
@@ -55,9 +56,14 @@ export const metadata: Metadata = {
       'Front-end developer focused on building clear, accessible and maintainable web interfaces using React and TypeScript.',
     creator: '',
   },
+  themeColor: '#ffffff',
+  manifest: '/site.webmanifest',
   robots: {
     index: true,
     follow: true,
+  },
+  other: {
+    'apple-mobile-web-app-title': 'Emrah Isović',
   },
 };
 
@@ -81,23 +87,7 @@ export default function RootLayout({
     >
       <head>
         <Head>
-          <meta name='apple-mobile-web-app-title' content='Emrah Isović' />
-          <link rel='manifest' href='/site.webmanifest' />
-          <script
-            type='application/ld+json'
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'Person',
-                name: 'Emrah Isović',
-                url: 'https://emrahisovic.vercel.app',
-                sameAs: [
-                  'https://github.com/EmrahIso',
-                  'https://www.linkedin.com/in/emrah-isovic-380127353/',
-                ],
-              }),
-            }}
-          />
+          <JsonLd />
         </Head>
       </head>
       <body
