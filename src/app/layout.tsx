@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     default: 'Emrah Isović | Front-End Developer',
     template: '%s | Emrah Isović',
   },
+  alternates: {
+    canonical: 'https://emrahisovic.vercel.app',
+  },
   description:
     "I'm Emrah Isović, a front-end developer focused on building clear, accessible and maintainable web interfaces using React and TypeScript.",
   keywords: [
@@ -80,6 +83,21 @@ export default function RootLayout({
         <Head>
           <meta name='apple-mobile-web-app-title' content='Emrah Isović' />
           <link rel='manifest' href='/site.webmanifest' />
+          <script
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'Person',
+                name: 'Emrah Isović',
+                url: 'https://emrahisovic.vercel.app',
+                sameAs: [
+                  'https://github.com/EmrahIso',
+                  'https://www.linkedin.com/in/emrah-isovic-380127353/',
+                ],
+              }),
+            }}
+          />
         </Head>
       </head>
       <body
