@@ -1,8 +1,15 @@
 import { Icon } from '@iconify/react';
 import SkillCard from '@/components/SkillCard';
 import skillsArray, { SkillCategory, Skill } from '@/lib/skillsData';
+import type { Metadata } from 'next';
 
 import AnimatedListItem from '@/components/AnimatedListItem';
+
+export const metadata: Metadata = {
+  title: 'Skills',
+  description:
+    'Explore the skills of Emrah Isović, including React, TypeScript, Next.js, and modern JavaScript tooling.',
+};
 
 const Skills = () => {
   return (

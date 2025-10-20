@@ -1,6 +1,13 @@
 import { Icon } from '@iconify/react';
+import type { Metadata } from 'next';
 
 import AnimatedListItem from '@/components/AnimatedListItem';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Learn more about Emrah Isović, a self-taught Front-End Developer, his skills and experience.',
+};
 
 const About = () => {
   return (

@@ -1,6 +1,14 @@
 import projectsArray, { Project } from '@/lib/projectsData';
 import { CodeXml, Link } from 'lucide-react';
+import type { Metadata } from 'next';
+
 import AnimatedListItem from '@/components/AnimatedListItem';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description:
+    "Check out Emrah Isović's portfolio projects showcasing his front-end development work with React, Vite and Next.js.",
+};
 
 const Projects = () => {
   return (

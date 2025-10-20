@@ -1,7 +1,14 @@
 import { Mail, MapPin } from 'lucide-react';
 import { Icon } from '@iconify/react';
+import type { Metadata } from 'next';
 
 import AnimatedListItem from '@/components/AnimatedListItem';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'Get in touch with Emrah Isović. Find email, LinkedIn, GitHub, and Discord contacts.',
+};
 
 const Contact = () => {
   return (
